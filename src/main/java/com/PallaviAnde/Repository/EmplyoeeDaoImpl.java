@@ -47,4 +47,10 @@ public class EmplyoeeDaoImpl implements EmplyoeeDao{
 		}
 	}
 
+	@Override
+	public void deleteData() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
