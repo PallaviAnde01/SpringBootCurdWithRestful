@@ -36,4 +36,10 @@ public class EmplyoeeDaoImpl implements EmplyoeeDao{
 		return list;
 	}
 
+	@Override
+	public Emplyoee updateData(Integer id) {
+		
+		return null;
+	}
+
 }
