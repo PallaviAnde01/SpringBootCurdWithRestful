@@ -27,8 +27,12 @@ public class EmplyoeeServiceImpl implements EmplyoeeService{
 
 	@Override
 	public Emplyoee updateData(Integer id) {
-		// TODO Auto-generated method stub
+		Emplyoee emplyoee = emplyoeeDao.updateData(id);
+		if(emplyoee!=null) {
+			return emplyoee;
+		}else {
 		return null;
+		}
 	}
 	
 	
