@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,13 +22,18 @@ public class EmplyoeeDaoImpl implements EmplyoeeDao{
 		session.beginTransaction();
 		 int id = (int) session.save(emplyoee);
 		session.getTransaction().commit();
+		
 		return id;
 	}
 
 	@Override
 	public List<Emplyoee> getAllData() {
-		// TODO Auto-generated method stub
-		return null;
+		String hql="from Emplyoee";
+		Session session = sf.openSession();
+		Query query = session.createQuery(hql);
+		List list = query.getResultList();
+		
+		return list;
 	}
 
 }
