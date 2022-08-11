@@ -37,8 +37,7 @@ public class EmplyoeeServiceImpl implements EmplyoeeService{
 
 	@Override
 	public void deleteData() {
-		// TODO Auto-generated method stub
-		
+		emplyoeeDao.deleteData();
 	}
 	
 	
