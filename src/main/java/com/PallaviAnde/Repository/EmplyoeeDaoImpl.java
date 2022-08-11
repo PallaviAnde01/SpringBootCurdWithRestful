@@ -38,8 +38,13 @@ public class EmplyoeeDaoImpl implements EmplyoeeDao{
 
 	@Override
 	public Emplyoee updateData(Integer id) {
-		
+		Session session = sf.openSession();
+		Emplyoee emplyoee = session.get(Emplyoee.class, id);
+		if(emplyoee!=null) {
+			return emplyoee;
+		}else {
 		return null;
+		}
 	}
 
 }
