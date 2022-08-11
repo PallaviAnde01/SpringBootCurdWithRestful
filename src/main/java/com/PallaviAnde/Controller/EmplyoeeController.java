@@ -60,7 +60,6 @@ public class EmplyoeeController {
 	public ResponseEntity<String> deleteData(){
 		emplyoeeService.deleteData();
 		return new ResponseEntity<String>("All data deleted",HttpStatus.OK);
-		
-	}
+		}
 	
 }
