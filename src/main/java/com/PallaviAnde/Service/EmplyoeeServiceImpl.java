@@ -34,6 +34,12 @@ public class EmplyoeeServiceImpl implements EmplyoeeService{
 		return null;
 		}
 	}
+
+	@Override
+	public void deleteData() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 
