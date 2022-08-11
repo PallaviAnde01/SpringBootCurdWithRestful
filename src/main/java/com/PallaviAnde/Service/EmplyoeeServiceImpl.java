@@ -20,8 +20,11 @@ public class EmplyoeeServiceImpl implements EmplyoeeService{
 
 	@Override
 	public List<Emplyoee> getAllData() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Emplyoee> allData = emplyoeeDao.getAllData();
+		
+		return allData;
 	}
+	
+	
 
 }
