@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,6 +35,26 @@ public class EmplyoeeController {
 		
 		return new ResponseEntity<List<Emplyoee>>(allData,HttpStatus.OK);
 		}
+	
+	@PutMapping(value="/update/{id}")
+	public ResponseEntity<String> updateData(@PathVariable Integer id,@RequestBody Emplyoee emplyoee){
+		 Emplyoee update = emplyoeeService.updateData(id);
+		 if(update!=null) {
+				update.setUsername(emplyoee.getUsername());
+				update.setPassword(emplyoee.getPassword());
+				update.setName(emplyoee.getName());
+				update.setAddress(emplyoee.getAddress());
+				update.setEmail(emplyoee.getEmail());
+				update.setAge(emplyoee.getAge());
+				update.setSalary(emplyoee.getSalary());
+				int data = emplyoeeService.saveData(update);
+				String msg="Id "+data+" updated successfully...";
+				return new ResponseEntity<String>(msg,HttpStatus.OK);
+			}else {
+			return new ResponseEntity<String>("Such id is not present",HttpStatus.BAD_REQUEST);
+			}
+	}
+	
 	
 	
 }
