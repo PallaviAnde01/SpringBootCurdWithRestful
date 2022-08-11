@@ -30,8 +30,10 @@ public class EmplyoeeDaoImpl implements EmplyoeeDao{
 	public List<Emplyoee> getAllData() {
 		String hql="from Emplyoee";
 		Session session = sf.openSession();
+		session .beginTransaction();
 		Query query = session.createQuery(hql);
 		List list = query.getResultList();
+		session.getTransaction().commit();
 		
 		return list;
 	}
@@ -39,7 +41,9 @@ public class EmplyoeeDaoImpl implements EmplyoeeDao{
 	@Override
 	public Emplyoee updateData(Integer id) {
 		Session session = sf.openSession();
+		session.beginTransaction();
 		Emplyoee emplyoee = session.get(Emplyoee.class, id);
+		session.getTransaction().commit();
 		if(emplyoee!=null) {
 			return emplyoee;
 		}else {
@@ -49,8 +53,12 @@ public class EmplyoeeDaoImpl implements EmplyoeeDao{
 
 	@Override
 	public void deleteData() {
-		// TODO Auto-generated method stub
-		
+		String hql="delete from Emplyoee";
+		Session session = sf.openSession();
+		session.beginTransaction();
+		Query query = session .createQuery(hql);
+		query.executeUpdate();
+		session.getTransaction().commit();
 	}
 
 }
