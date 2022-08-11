@@ -1,5 +1,7 @@
 package com.PallaviAnde.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.PallaviAnde.Model.Emplyoee;
@@ -14,6 +16,12 @@ public class EmplyoeeServiceImpl implements EmplyoeeService{
 	public int saveData(Emplyoee emplyoee) {
 		int id = emplyoeeDao.saveData(emplyoee);
 		return id;
+	}
+
+	@Override
+	public List<Emplyoee> getAllData() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
