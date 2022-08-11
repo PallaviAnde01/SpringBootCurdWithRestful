@@ -1,5 +1,7 @@
 package com.PallaviAnde.Repository;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,12 @@ public class EmplyoeeDaoImpl implements EmplyoeeDao{
 		 int id = (int) session.save(emplyoee);
 		session.getTransaction().commit();
 		return id;
+	}
+
+	@Override
+	public List<Emplyoee> getAllData() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
